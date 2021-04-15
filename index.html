@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Ryan Durand Portfolio</title>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- vis.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css" />
+
+  <!-- javascript and onepage scroll -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="./jquery.onepage-scroll.min.js"></script>
+
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Cutive+Mono|PT+Mono" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet" />
+
+  <!-- onepage scroll, boostrap, css -->
+  <link rel="stylesheet" type="text/css" href="./onepage-scroll.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="./style.css" />
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $(".main").onepage_scroll({
+        sectionContainer: "section",
+        loop: false,
+        beforeMove: function(index) {
+          clearInterval(timerId);
+          clearInterval(timerId2);
+          timerId = setInterval(() => transitionToBlack(index), 20);
+        }
+      });
+    });
+    var possible = "█▓▒▇▆▅▄▖▕▔▐▏▎▍▌▀";
+    var x = possible.length;
+    var timerId2;
+    var timerId;
+
+    function transitionToBlack(index) {
+      var text = "";
+      var page;
+      if (index == 1) {
+        page =
+          "about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me about me";
+      }
+      if (index == 2) {
+        page =
+          "the portfolio the portfolio  the portfolio  the portfolio  the portfolio  the portfolio  the portfolio  the portfolio  the portfolio  the portfolio  the portfolio  the portfolio  the portfolio  the portfolio  the portfolio  the portfolio  the portfolio  the portfolio  the portfolio  the portfolio  the portfolio  the portfolio  the portfolio  the portfolio  the portfolio  the portfolio  the portfolio  the portfolio  the portfolio  the portfolio  the portfolio";
+      }
+      if (index == 3) {
+        page =
+          "email github email github email github email github email github email github email github email github email github email github email github email github email github email github email github email github email github email github email github email github email github email github email github email github email github email github email github email github ";
+      }
+      if (x > 0) {
+        x = x - 1;
+      }
+
+      for (var i = 0; i < 200; i++) {
+        text += possible.charAt(Math.floor(Math.random() * x));
+        for (var j = Math.floor(Math.random() * x); j > 0; j--) {
+          text += "\u2060";
+          text += " ";
+        }
+      }
+      $(".topGlitch").text(text);
+      $(".rightGlitch").text(text);
+      $(".bottomGlitch").text(text);
+      $(".leftGlitch").text(text);
+
+      if (x == 0) {
+        text = page;
+        $(".topSidebar").text(text);
+        $(".rightSidebar").text(text);
+        $(".bottomSidebar").text(text);
+        $(".leftSidebar").text(text);
+        clearInterval(timerId);
+        timerId2 = setInterval(() => transitionToClear(), 20);
+      }
+    }
+
+    function transitionToClear() {
+      var text = "";
+      if (x == possible.length) {
+        $(".topGlitch").text(text);
+        $(".rightGlitch").text(text);
+        $(".bottomGlitch").text(text);
+        $(".leftGlitch").text(text);
+        clearInterval(timerId2);
+        return;
+      }
+      if (x < possible.length) {
+        x = x + 1;
+      }
+
+      for (var i = 0; i < 200; i++) {
+        text += possible.charAt(Math.floor(Math.random() * x));
+        for (var j = Math.floor(Math.random() * x); j > 0; j--) {
+          text += "\u2060";
+          text += " ";
+        }
+      }
+      $(".topGlitch").text(text);
+      $(".rightGlitch").text(text);
+      $(".bottomGlitch").text(text);
+      $(".leftGlitch").text(text);
+    }
+  </script>
+</head>
+
+<body>
+  <div id="square1"></div>
+  <div id="square2"></div>
+  <div id="square3"></div>
+  <div id="square4"></div>
+  <div class="sidebars">
+    <div class="topSidebar">
+      about me about me about me about me about me about me about me about me
+      about me about me about me about me about me about me about me about me
+      about me about me about me about me about me about me about me about me
+      about me about me about me about me about me about me about me about me
+      about me about me about me about me about me about me about me about me
+      about me about me about me about me about me about me about me about me
+    </div>
+    <div class="topSidebar topGlitch"></div>
+    <div class="rightSidebar">
+      about me about me about me about me about me about me about me about me
+      about me about me about me about me about me about me about me about me
+      about me about me about me about me about me about me about me about me
+      about me about me about me about me about me about me about me about me
+      about me about me about me about me about me about me about me about me
+      about me about me about me about me about me about me about me about me
+    </div>
+    <div class="rightSidebar rightGlitch"></div>
+    <div class="leftSidebar">
+      about me about me about me about me about me about me about me about me
+      about me about me about me about me about me about me about me about me
+      about me about me about me about me about me about me about me about me
+      about me about me about me about me about me about me about me about me
+      about me about me about me about me about me about me about me about me
+      about me about me about me about me about me about me about me about me
+    </div>
+    <div class="leftSidebar leftGlitch"></div>
+    <div class="bottomSidebar">
+      about me about me about me about me about me about me about me about me
+      about me about me about me about me about me about me about me about me
+      about me about me about me about me about me about me about me about me
+      about me about me about me about me about me about me about me about me
+      about me about me about me about me about me about me about me about me
+      about me about me about me about me about me about me about me about me
+    </div>
+    <div class="bottomSidebar bottomGlitch"></div>
+  </div>
+  <div class="main">
+    <section class="container-fluid section" style="background-color:#750c0c;color:#fff;">
+      <div style="width:100%">
+        <h1 class="title">
+          Ryan Durand is an <br />
+          aspiring full stack developer and CS graduate from<br />
+          George Mason University.
+        </h1>
+      </div>
+      <div class="arrow bounce">
+        <h1 class="fa fa-arrow-down fa-2x" href="#">&#10225;</h1>
+      </div>
+    </section>
+    <section class="container-fluid section" id="section2">
+      <div class="row-container" style="padding: 10px;">
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="selection btn-group-vertical hidden-xs ">
+              <input class="portBtn" type="radio" name="options" id="SpotifyFav" checked />
+              <label class="btn btn-primary" for="SpotifyFav">
+                Spotify</br>
+                Favorites
+              </label>
+
+              <input class="portBtn" type="radio" name="options" id="AlbumBacklog" />
+              <label class="btn btn-primary" for="AlbumBacklog">
+                Album Backlog
+              </label>
+
+              <input class="portBtn" type="radio" name="options" id="Bearcat" />
+              <label class="btn btn-primary" for="Bearcat">
+                Bearcat Records
+              </label>
+            </div>
+            <div class="selection btn-group hidden-sm hidden-md hidden-lg">
+              <input class="portBtn" type="radio" name="options2" id="SpotifyFav2" checked />
+              <label class="btn btn-primary" for="SpotifyFav2">
+                Spotify</br>
+                Favorites
+              </label>
+
+              <input class="portBtn" type="radio" name="options2" id="AlbumBacklog2" />
+              <label class="btn btn-primary" for="AlbumBacklog2">
+                Album Backlog
+              </label>
+
+              <input class="portBtn" type="radio" name="options2" id="Bearcat2" />
+              <label class="btn btn-primary" for="Bearcat2">
+                Bearcat Records
+              </label>
+            </div>
+
+            <div class="descShot">
+              <h2>
+                Web App that retrieves a users most played tracks and artists</br>
+                from 4 weeks, 6 months, and multiple years.
+              </h2>
+              <h3>
+                <a href="http://spotify-favorites-retriever.herokuapp.com/" target="_blank" class="external">Read More ↪</a>
+              </h3>
+            </div>
+          </div>
+          <div id="portfolioContainter" class="col-sm-9">
+            <img id="portfolio" class="img-responsive" src="./img/spotify.png" />
+          </div>
+        </div>
+      </div>
+      <script type="text/javascript">
+        $(".portBtn").click(function() {
+          if (
+            event.target.id == "Bearcat" ||
+            event.target.id == "Bearcat2"
+          ) {
+            $("#portfolioContainter").html($("#bearcatImg").html());
+            $(".descShot").html($("#bearcatTxt").html());
+          }
+          if (
+            event.target.id == "AlbumBacklog" ||
+            event.target.id == "AlbumBacklog2"
+          ) {
+            $("#portfolioContainter").html($("#backlogImg").html());
+            $(".descShot").html($("#backlogTxt").html());
+          }
+          if (event.target.id == "SpotifyFav" || event.target.id == "SpotifyFav2") {
+            $("#portfolioContainter").html($("#spotifyImg").html());
+            $(".descShot").html($("#spotifyTxt").html());
+          }
+        });
+      </script>
+    </section>
+    <section class="container-fluid section" id="section3">
+      <div class="img-container">
+        <div class="col-md-6">
+          <a href="mailto: ryandurand70@gmail.com" target="_blank">
+            <img class="contact-img" src="https://bestanimations.com/media/computers/1103969144funny-computer-animated-gif-28.gif" style="display:block;margin:auto;" />
+          </a>
+        </div>
+        <div class="col-md-6">
+          <a href="https://github.com/ryan-durand" target="_blank"><img class="contact-img" src="http://bestanimations.com/Animals/Fish/animated-octopus-gif.gif" style="display:block;margin:auto;" /></a>
+        </div>
+      </div>
+    <div style="visibility: hidden;">
+      <div id="bearcatImg">
+        <img id="portfolio" class="img-responsive" src="./img/bearcatrecords.jpg" />
+      </div>
+      <div id="bearcatTxt">
+        <h2>
+          Fictional storefront to archive my physical music media collection.
+        </h2>
+        <h3>
+          <a href="https://ryan-durand.github.io/BearcatRecords/" target="_blank" class="external">Read More ↪</a>
+        </h3>
+      </div>
+      <div id="spotifyImg">
+        <img id="portfolio" class="img-responsive" src="./img/spotify.png" />
+      </div>
+      <div id="spotifyTxt">
+        <h2>
+          Web App that retrieves a users most played tracks and artists
+          from 4 weeks, 6 months, and multiple years.
+        </h2>
+        <h3>
+          <a href="http://spotify-favorites-retriever.herokuapp.com/" target="_blank" class="external">Read More ↪</a>
+        </h3>
+      </div>
+      <div id="backlogImg">
+        <img id="portfolio" class="img-responsive" src="./img/album-backlog.png" />
+      </div>
+      <div id="backlogTxt">
+        <h2>Web App that can backlog albums and create custom lists based on genre</h2>
+        <h3>
+          <a href="https://album-backlog.herokuapp.com/" target="_blank" class="external">Read More ↪</a>
+        </h3>
+      </div>
+    </div>
+  </div>
+  <script async defer src="https://mask.bgsl.lol/latest.js"></script>
+  <noscript><img src="https://mask.bgsl.lol/noscript.gif" alt="" /></noscript>
+</body>
+
+</html>
