@@ -18,6 +18,10 @@ body {
 .row{
 	height: 100%;
 }
+
+.secondRow{
+	margin-top: 2rem;
+}
 #portfolioContainter{
 	height: 100%;
 }

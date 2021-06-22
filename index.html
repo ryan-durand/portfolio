@@ -192,6 +192,11 @@
               <label class="btn btn-primary" for="Bearcat">
                 Bearcat Records
               </label>
+
+              <input class="portBtn" type="radio" name="options" id="GoogleKeep" />
+              <label class="btn btn-primary" for="GoogleKeep">
+                Google Keep clone
+              </label>
             </div>
             <div class="selection btn-group hidden-sm hidden-md hidden-lg">
               <input class="portBtn" type="radio" name="options2" id="SpotifyFav2" checked />
@@ -208,6 +213,11 @@
               <input class="portBtn" type="radio" name="options2" id="Bearcat2" />
               <label class="btn btn-primary" for="Bearcat2">
                 Bearcat Records
+              </label>
+
+              <input class="portBtn" type="radio" name="options2" id="GoogleKeep2" />
+              <label class="btn btn-primary" for="GoogleKeep2">
+                Google Keep clone
               </label>
             </div>
 
@@ -246,6 +256,10 @@
             $("#portfolioContainter").html($("#spotifyImg").html());
             $(".descShot").html($("#spotifyTxt").html());
           }
+          if (event.target.id == "GoogleKeep" || event.target.id == "GoogleKeep2") {
+            $("#portfolioContainter").html($("#keepImg").html());
+            $(".descShot").html($("#keepTxt").html());
+          }
         });
       </script>
     </section>
@@ -274,11 +288,14 @@
       <img class="skills-img" src="./img/mongo.png" style="display:block;margin:auto;" />
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-6">
+  <div class="row secondRow">
+    <div class="col-md-4">
       <img class="skills-img" src="./img/wordpress.png" style="display:block;margin:auto;" />
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
+      <img class="skills-img" src="./img/react.png" style="display:block;margin:auto;" />
+    </div>
+    <div class="col-md-4">
       <img class="skills-img" src="./img/git.png" style="display:block;margin:auto;" />
     </div>
   </div>
@@ -315,6 +332,15 @@
         <h2>Web App that can backlog albums and create custom lists based on genre</h2>
         <h3>
           <a href="https://album-backlog.herokuapp.com/" target="_blank" class="external">Read More ↪</a>
+        </h3>
+      </div>
+      <div id="keepImg">
+        <img id="portfolio" class="img-responsive" src="./img/keeper.png" />
+      </div>
+      <div id="keepTxt">
+        <h2>A Google Keep clone developed in React for personalized note keeping.</h2>
+        <h3>
+          <a href="https://ryan-durand.github.io/google-keeper-clone/" target="_blank" class="external">Read More ↪</a>
         </h3>
       </div>
     </div>
